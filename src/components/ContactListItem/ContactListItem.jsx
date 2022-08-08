@@ -1,4 +1,5 @@
 import { useDeleteContactMutation } from '../../redux/contactsApi';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import s from './ContactListItem.module.css';
 
@@ -9,7 +10,14 @@ export default function ContactListItem({ contact }) {
     return (
         <li className={s.item}>
             <span className={s.decor}></span> {name}: {number}
-            <button className={s.button} type="button" onClick={() => deleteContact(id)}>
+            <button
+                className={s.button}
+                type="button"
+                onClick={() => {
+                    deleteContact(id);
+                    Notify.success('contact deleted');
+                }}
+            >
                 {isLoading ? 'Deleting...' : 'Delete'}
             </button>
         </li>

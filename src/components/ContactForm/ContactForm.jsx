@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAddContactMutation } from '../../redux/contactsApi';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import s from './ContactForm.module.css';
 
@@ -27,7 +28,9 @@ export default function ContactForm() {
 
     const onSubmit = e => {
         e.preventDefault();
+
         addContact({ name, number });
+        Notify.success('contact added');
 
         resetState();
     };
