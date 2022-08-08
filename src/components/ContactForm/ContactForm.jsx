@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { useAddContactMutation } from '../../redux/contactsApi';
 
 import s from './ContactForm.module.css';
 
 export default function ContactForm() {
-    const dispatch = useDispatch();
+    const [addContact] = useAddContactMutation();
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
@@ -28,7 +27,7 @@ export default function ContactForm() {
 
     const onSubmit = e => {
         e.preventDefault();
-        dispatch(addContact(name, number));
+        addContact({ name, number });
 
         resetState();
     };

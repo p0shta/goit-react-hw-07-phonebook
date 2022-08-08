@@ -22,9 +22,10 @@
 }
 
 .button {
+    min-width: 80px;
     font-size: 12px;
     margin-left: auto;
-    padding: 5px 15px;
+    padding: 5px 10px;
     border-radius: 10px;
     background-color: #586f7cee;
     color: #f4f4f9;
