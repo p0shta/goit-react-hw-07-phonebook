@@ -1,4 +1,5 @@
 import { useDeleteContactMutation } from '../../redux/contactsApi';
+import PropTypes from 'prop-types';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import s from './ContactListItem.module.css';
@@ -23,3 +24,12 @@ export default function ContactListItem({ contact }) {
         </li>
     );
 }
+
+ContactListItem.propTypes = {
+    contact: PropTypes.shape({
+        createdAt: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+    }),
+};
